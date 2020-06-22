@@ -73,7 +73,7 @@ char* RTSPServer::rtspURLPrefix(int clientSocket) const {
       ? ReceivingInterfaceAddr
       : ourIPAddress(envir()); // hack
   } else {
-    SOCKLEN_T namelen = sizeof ourAddress;
+    socklen_t namelen = sizeof ourAddress;
     getsockname(clientSocket, (struct sockaddr*)&ourAddress, &namelen);
   }
   
@@ -1416,7 +1416,7 @@ void RTSPServer::RTSPClientSession
     Port serverRTCPPort(0);
     
     // Make sure that we transmit on the same interface that's used by the client (in case we're a multi-homed server):
-    struct sockaddr_in sourceAddr; SOCKLEN_T namelen = sizeof sourceAddr;
+    struct sockaddr_in sourceAddr; socklen_t namelen = sizeof sourceAddr;
     getsockname(ourClientConnection->fClientInputSocket, (struct sockaddr*)&sourceAddr, &namelen);
     netAddressBits origSendingInterfaceAddr = SendingInterfaceAddr;
     netAddressBits origReceivingInterfaceAddr = ReceivingInterfaceAddr;

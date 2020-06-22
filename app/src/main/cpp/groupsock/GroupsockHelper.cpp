@@ -341,7 +341,7 @@ int setupStreamSocket(UsageEnvironment& env,
 int readSocket(UsageEnvironment& env,
 	       int socket, unsigned char* buffer, unsigned bufferSize,
 	       struct sockaddr_in& fromAddress) {
-  SOCKLEN_T addressSize = sizeof fromAddress;
+  socklen_t addressSize = sizeof fromAddress;
   int bytesRead = recvfrom(socket, (char*)buffer, bufferSize, 0,
 			   (struct sockaddr*)&fromAddress,
 			   &addressSize);
@@ -428,7 +428,7 @@ void ignoreSigPipeOnSocket(int socketNum) {
 static unsigned getBufferSize(UsageEnvironment& env, int bufOptName,
 			      int socket) {
   unsigned curSize;
-  SOCKLEN_T sizeSize = sizeof curSize;
+  socklen_t sizeSize = sizeof curSize;
   if (getsockopt(socket, SOL_SOCKET, bufOptName,
 		 (char*)&curSize, &sizeSize) < 0) {
     socketErr(env, "getBufferSize() error: ");
@@ -616,7 +616,7 @@ Boolean socketLeaveGroupSSM(UsageEnvironment& /*env*/, int socket,
 
 static Boolean getSourcePort0(int socket, portNumBits& resultPortNum/*host order*/) {
   sockaddr_in test; test.sin_port = 0;
-  SOCKLEN_T len = sizeof test;
+  socklen_t len = sizeof test;
   if (getsockname(socket, (struct sockaddr*)&test, &len) < 0) return False;
 
   resultPortNum = ntohs(test.sin_port);
