@@ -12,7 +12,7 @@ add_library(crypto
 set_target_properties(crypto
         PROPERTIES IMPORTED_LOCATION
         #E:/Projects/AndroidProjects/ASProject/Application2/app/src/main/jniLibs/libcrypto.so
-        D:/jxdprojects/live555/app/src/main/cpp/liveMedia/jniLibs/libcrypto.so
+        D:/jxdprojects/live555/app/src/main/cpp/liveMedia/jniLibs/${ANDROID_ABI}/libcrypto.so
         )
 
 add_library(ssl
@@ -23,7 +23,7 @@ add_library(ssl
 set_target_properties(ssl
         PROPERTIES IMPORTED_LOCATION
         #E:/Projects/AndroidProjects/ASProject/Application2/app/src/main/jniLibs/libssl.so
-        D:/jxdprojects/live555/app/src/main/cpp/liveMedia/jniLibs/libssl.so
+        D:/jxdprojects/live555/app/src/main/cpp/liveMedia/jniLibs/${ANDROID_ABI}/libssl.so
         )
 
 file(GLOB liveMediaFiles
