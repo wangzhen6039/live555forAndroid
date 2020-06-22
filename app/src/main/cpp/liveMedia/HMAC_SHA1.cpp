@@ -5,14 +5,14 @@
 // Implementation
 
 #include "HMAC_SHA1.hh"
-#include "../include/openssl/ossl_typ.h"
+#include "../openssl/include/ossl_typ.h"
 
 #ifndef NO_OPENSSL
 #if defined(__APPLE__)
 #define COMMON_DIGEST_FOR_OPENSSL
 #include <CommonCrypto/CommonDigest.h>
 #endif
-#include "../include/openssl/evp.h"
+#include "../openssl/include/evp.h"
 
 ////////// HMAC_SHA1 implementation //////////
 

@@ -4,7 +4,7 @@ include_directories(../UsageEnvironment/include)
 include_directories(../BasicUsageEnvironment/include)
 ADD_DEFINITIONS(-D LOCALE_NOT_USED)
 
-include_directories(${CMAKE_SOURCE_DIR}/include/openssl/)
+include_directories(${CMAKE_SOURCE_DIR}/openssl/include/)
 # add ourself so  libcrypto.so    libssl.so
 add_library(crypto
         SHARED
